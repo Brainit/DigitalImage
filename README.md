@@ -3,5 +3,5 @@ Image processing project
 
 Gray Scale
 Filtering
-Binaryzation
+Thresholding
 Thinning 
