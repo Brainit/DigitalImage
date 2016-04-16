@@ -6,18 +6,51 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Binaryzation {
+/**
+ * A binary image is a digital image that has only two possible values for each
+ * pixel.
+ * 
+ * Typically, the two colors used for a binary image are black and white,
+ * 
+ * though any two colors can be used.
+ * 
+ * Thresholding of the gray Image
+ * 
+ * you may see more in
+ * 
+ * https://en.wikipedia.org/wiki/Thresholding_(image_processing)
+ * 
+ * more info : https://en.wikipedia.org/wiki/Binary_image
+ * 
+ * @author brainit branit
+ * 
+ *         http://www.brainit.cn/
+ * 
+ */
+public class Thresholding {
 	public BufferedImage image;
 	/**
-	 * 
+	 * sample threshold: which threshold is up to use
 	 */
 	public static final int SAMPLE_THRESHOLD = 127;
 
-	public Binaryzation(BufferedImage image) {
+	/**
+	 * build the Thresholding with bufferedImage
+	 * 
+	 * @param image
+	 *            bufferedImage
+	 */
+	public Thresholding(BufferedImage image) {
 		this.image = image;
 	}
 
-	public Binaryzation(File input) {
+	/**
+	 * build the Thresholding with Image File
+	 * 
+	 * @param input
+	 *            Image File
+	 */
+	public Thresholding(File input) {
 		try {
 			image = ImageIO.read(input);
 		} catch (IOException e) {
@@ -26,13 +59,31 @@ public class Binaryzation {
 		}
 	}
 
-	public BufferedImage binaryzationWithSampleThreshold() {
+	/**
+	 * Thresholding with SAMPLE_THRESHOLD
+	 * 
+	 * SAMPLE_THRESHOD = 127;
+	 * 
+	 * @return the bufferedImage after editing
+	 */
+	public BufferedImage thresholdingWithSampleThreshold() {
 		int threshold = SAMPLE_THRESHOLD;
-		return binaryzationWithThreshold(threshold);
+		return thresholdingWithThreshold(threshold);
 	}
 
-	public void binaryzationWithSampleThreshold(File output) {
-		BufferedImage result = binaryzationWithSampleThreshold();
+	/**
+	 * output data to file
+	 * 
+	 * get the BufferedImage after editing with method
+	 * thresholdingWithSampleThreshold()
+	 * 
+	 * output the buffereImage to destFile
+	 * 
+	 * @param output
+	 *            destFile
+	 */
+	public void thresholdingWithSampleThreshold(File output) {
+		BufferedImage result = thresholdingWithSampleThreshold();
 		try {
 			ImageIO.write(result, "png", output);
 			System.out.println("successfully output");
@@ -42,7 +93,18 @@ public class Binaryzation {
 		}
 	}
 
-	public BufferedImage binaryzationWithAverage() {
+	/**
+	 * Thresholding with average of grays
+	 * 
+	 * grays = (g1,g2,...,gn)
+	 * 
+	 * average = (g1 + g2 + ... + gn) / n
+	 * 
+	 * threshold = average
+	 * 
+	 * @return the bufferedImage after editing
+	 */
+	public BufferedImage thresholdingWithAverage() {
 		int width = image.getWidth();
 		int height = image.getHeight();
 		int sum = 0;
@@ -54,11 +116,22 @@ public class Binaryzation {
 			}
 		}
 		int threshold = sum / (width * height);
-		return binaryzationWithThreshold(threshold);
+		return thresholdingWithThreshold(threshold);
 	}
 
-	public void binaryzationWithAverage(File output) {
-		BufferedImage result = binaryzationWithAverage();
+	/**
+	 * output data to file
+	 * 
+	 * get the BufferedImage after editing with method
+	 * thresholdingWithSampleThreshold()
+	 * 
+	 * output the buffereImage to destFile
+	 * 
+	 * @param output
+	 *            destFile
+	 */
+	public void thresholdingWithAverage(File output) {
+		BufferedImage result = thresholdingWithAverage();
 		try {
 			ImageIO.write(result, "png", output);
 			System.out.println("successfully output");
@@ -68,22 +141,32 @@ public class Binaryzation {
 		}
 	}
 
-	public BufferedImage binaryzationWithHistogram() {
+	/**
+	 * Thresholding with Histogram
+	 * 
+	 * threshold = ostu()
+	 * 
+	 * more info you may find in ostu();
+	 * 
+	 * @return the bufferedImage after editing
+	 */
+	public BufferedImage thresholdingWithHistogram() {
 		int threshold = ostu();
-		return binaryzationWithThreshold(threshold);
+		return thresholdingWithThreshold(threshold);
 	}
 
 	/**
-	 * binaryzation of the gray Image
+	 * output data to file
 	 * 
-	 * you may see more in
+	 * get the BufferedImage after editing with method
+	 * thresholdingWithHistogram()
 	 * 
-	 * https://en.wikipedia.org/wiki/Thresholding_(image_processing)
+	 * output the buffereImage to destFile
 	 * 
 	 * @param output
 	 */
-	public void binaryzationWithHistogram(File output) {
-		BufferedImage result = binaryzationWithHistogram();
+	public void thresholdingWithHistogram(File output) {
+		BufferedImage result = thresholdingWithHistogram();
 		try {
 			ImageIO.write(result, "png", output);
 			System.out.println("successfully output");
@@ -94,7 +177,7 @@ public class Binaryzation {
 	}
 
 	/**
-	 * Otsu's method to get the threshold of the binaryzation
+	 * Otsu's method to get the threshold of the thresholding
 	 * 
 	 * you may see more in
 	 * 
@@ -147,7 +230,17 @@ public class Binaryzation {
 		return threshold;
 	}
 
-	private BufferedImage binaryzationWithThreshold(int threshold) {
+	/**
+	 * Through the threshold
+	 * 
+	 * make sure one pixel with black or white
+	 * 
+	 * @param threshold
+	 *            0 <= threshold <= 255
+	 * @return return the bufferedImage after editing
+	 */
+	private BufferedImage thresholdingWithThreshold(int threshold) {
+		System.out.println(threshold);
 		int width = image.getWidth();
 		int height = image.getHeight();
 		BufferedImage result = new BufferedImage(width, height,
@@ -156,7 +249,7 @@ public class Binaryzation {
 			for (int y = 0; y < height; y++) {
 				int rgb = image.getRGB(x, y);
 				int gray = Math.abs(rgb >> 16);
-				System.out.println(gray);
+				// System.out.println(gray);
 				if (gray > threshold) {
 					rgb = 0x000000;
 				} else {
@@ -169,22 +262,26 @@ public class Binaryzation {
 	}
 
 	/**
+	 * Testing method
+	 * 
 	 * @param args
+	 *            system parameters
 	 */
 	public static void main(String[] args) {
 		File input;
-		input = new File("E://GrayWithMax.jpg");
+		input = new File("E://FilteringWithMean.jpg");
+		// input = new File("E://GrayWithMax.jpg");
 		// input = new File("E://GrayWithAverage.jpg");
 		// input = new File("E://GrayWithComponent.jpg");
 		// input = new File("E://GrayWithWeightedMean.jpg");
-		Binaryzation b = new Binaryzation(input);
+		Thresholding b = new Thresholding(input);
 		int ostu = b.ostu();
 		System.out.println(ostu);
-		b.binaryzationWithSampleThreshold(new File(
-				"E://binaryzationWithSampleThreshold.jpg"));
-		b.binaryzationWithAverage(new File("E://binaryzationWithAverage.jpg"));
-		b.binaryzationWithHistogram(new File(
-				"E://binaryzationWithHistogram.jpg"));
+		b.thresholdingWithSampleThreshold(new File(
+				"E://thresholdingWithSampleThreshold.jpg"));
+		b.thresholdingWithAverage(new File("E://thresholdingWithAverage.jpg"));
+		b.thresholdingWithHistogram(new File(
+				"E://thresholdingWithHistogram.jpg"));
 	}
 
 }
