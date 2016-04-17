@@ -269,8 +269,15 @@ public class Thresholding {
 	 */
 	public static void main(String[] args) {
 		File input;
-		input = new File("E://FilteringWithMean.jpg");
-		// input = new File("E://GrayWithMax.jpg");
+//		input = new File("E://图像对比//filter//AverageMean.jpg");
+//		 input = new File("E://图像对比//filter//AverageMedian.jpg");
+//		 input = new File("E://图像对比//filter//MaxMean.jpg");
+//		 input = new File("E://图像对比//filter//MaxMedian.jpg");
+//		 input = new File("E://图像对比//filter//RedMean.jpg");
+//		 input = new File("E://图像对比//filter//RedMedian.jpg");
+//		 input = new File("E://图像对比//filter//WeightedMean.jpg");
+//		 input = new File("E://图像对比//filter//WeightedMedian.jpg");
+		 input = new File("E://GrayWithMax.jpg");
 		// input = new File("E://GrayWithAverage.jpg");
 		// input = new File("E://GrayWithComponent.jpg");
 		// input = new File("E://GrayWithWeightedMean.jpg");
@@ -278,10 +285,10 @@ public class Thresholding {
 		int ostu = b.ostu();
 		System.out.println(ostu);
 		b.thresholdingWithSampleThreshold(new File(
-				"E://thresholdingWithSampleThreshold.jpg"));
-		b.thresholdingWithAverage(new File("E://thresholdingWithAverage.jpg"));
+				"E://output//thresholdingWithSampleThreshold.jpg"));
+		b.thresholdingWithAverage(new File("E://output//thresholdingWithAverage.jpg"));
 		b.thresholdingWithHistogram(new File(
-				"E://thresholdingWithHistogram.jpg"));
+				"E://output//thresholdingWithHistogram.jpg"));
 	}
 
 }

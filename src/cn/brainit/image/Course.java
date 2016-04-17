@@ -15,8 +15,7 @@ public class Course {
 	 * Grayscale introduction:https://en.wikipedia.org/wiki/Grayscale
 	 * 
 	 * Filtering
-	 * introduction:http://www.cnblogs.com/libing64/archive/2011/12/14/
-	 * 2878737.html
+	 * introduction:http://www.cnblogs.com/libing64/archive/2011/12/14/2878737.html
 	 * 
 	 * Thresholding introduction:https://en.wikipedia.org/wiki/Thresholding_(
 	 * image_processing)

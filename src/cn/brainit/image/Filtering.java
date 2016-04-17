@@ -215,10 +215,10 @@ public class Filtering {
 	 */
 	public static void main(String[] args) {
 		File input;
-		// input = new File("E://GrayWithMax.jpg");
-		// input = new File("E://GrayWithAverage.jpg");
-		input = new File("E://GrayWithComponent.jpg");
-		// input = new File("E://GrayWithWeightedMean.jpg");
+//		 input = new File("E://GrayWithMax.jpg");
+//		 input = new File("E://GrayWithAverage.jpg");
+//		input = new File("E://GrayWithComponent.jpg");
+		 input = new File("E://GrayWithWeightedMean.jpg");
 		Filtering f = new Filtering(input);
 		File output1 = new File("E://FilteringWithMean.jpg");
 		File output2 = new File("E://FilteringWithMedian.jpg");
