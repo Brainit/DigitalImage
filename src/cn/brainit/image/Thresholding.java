@@ -269,14 +269,14 @@ public class Thresholding {
 	 */
 	public static void main(String[] args) {
 		File input;
-//		input = new File("E://图像对比//filter//AverageMean.jpg");
-//		 input = new File("E://图像对比//filter//AverageMedian.jpg");
-//		 input = new File("E://图像对比//filter//MaxMean.jpg");
-//		 input = new File("E://图像对比//filter//MaxMedian.jpg");
-//		 input = new File("E://图像对比//filter//RedMean.jpg");
-//		 input = new File("E://图像对比//filter//RedMedian.jpg");
-//		 input = new File("E://图像对比//filter//WeightedMean.jpg");
-//		 input = new File("E://图像对比//filter//WeightedMedian.jpg");
+//		input = new File("E://case//filter//AverageMean.jpg");
+//		 input = new File("E://case//filter//AverageMedian.jpg");
+//		 input = new File("E://case//filter//MaxMean.jpg");
+//		 input = new File("E://case//filter//MaxMedian.jpg");
+//		 input = new File("E://case//filter//RedMean.jpg");
+//		 input = new File("E://case//filter//RedMedian.jpg");
+//		 input = new File("E://case//filter//WeightedMean.jpg");
+//		 input = new File("E://case//filter//WeightedMedian.jpg");
 		 input = new File("E://GrayWithMax.jpg");
 		// input = new File("E://GrayWithAverage.jpg");
 		// input = new File("E://GrayWithComponent.jpg");
